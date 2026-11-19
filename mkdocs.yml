@@ -1,0 +1,61 @@
+site_name: 성경 앞의 우리
+site_description: 함께 읽고, 함께 묻다 — Together Before Scripture
+site_url: https://gladbinah.github.io/
+site_author: GladBinah
+repo_url: https://github.com/GladBinah/gladbinah.github.io
+repo_name: GladBinah/gladbinah.github.io
+edit_uri: edit/main/docs/
+
+nav:
+  - 홈: index.md
+  - 성경 번역:
+      - 프로젝트 안내: translation/index.md
+      - 번역 원칙: translation/principles.md
+      - 신약성경: translation/books/index.md
+  - 성경 주석: commentary/index.md
+  - 소개 · 참여: about.md
+
+theme:
+  name: material
+  language: ko
+  palette:
+    scheme: slate
+    primary: black
+    accent: amber
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+  icon:
+    repo: fontawesome/brands/github
+
+plugins:
+  - search:
+      lang:
+        - ko
+        - en
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+
+extra_css:
+  - stylesheets/extra.css
+
+extra:
+  social:
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/@GladBinah
+      name: YouTube — 성경 앞의 우리
+    - icon: fontawesome/brands/github
+      link: https://github.com/GladBinah
+      name: GitHub — GladBinah
+
+copyright: "© GladBinah · 본문 및 자료의 이용 조건은 각 프로젝트 안내 참조"
