@@ -18,6 +18,8 @@ nav:
 theme:
   name: material
   language: ko
+  logo: assets/logo.png
+  favicon: assets/logo.png
   palette:
     scheme: slate
     primary: black
@@ -37,6 +39,27 @@ plugins:
       lang:
         - ko
         - en
+  - i18n:
+      docs_structure: suffix
+      fallback_to_default: true
+      languages:
+        - locale: ko
+          name: 한국어
+          default: true
+          build: true
+        - locale: en
+          name: English
+          build: true
+          site_name: Together Before Scripture
+          site_description: Read Together, Ask Together
+          nav_translations:
+            홈: Home
+            성경 번역: Bible Translation
+            프로젝트 안내: Project Overview
+            번역 원칙: Translation Principles
+            신약성경: New Testament
+            성경 주석: Bible Commentary
+            소개 · 참여: About & Contribute
 
 markdown_extensions:
   - admonition
@@ -58,4 +81,4 @@ extra:
       link: https://github.com/GladBinah
       name: GitHub — GladBinah
 
-copyright: "© GladBinah · 본문 및 자료의 이용 조건은 각 프로젝트 안내 참조"
+copyright: "© GladBinah · 각 프로젝트의 이용 조건 참조"
