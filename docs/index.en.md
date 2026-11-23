@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+---
+
 # Together Before Scripture
 
 **성경 앞의 우리**
