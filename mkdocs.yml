@@ -11,8 +11,10 @@ nav:
   - 성경 번역:
       - 프로젝트 안내: translation/index.md
       - 번역 원칙: translation/principles.md
-      - "KJV 한글성경: 구약": translation/old-testament/index.md
-      - "KJV 한글성경: 신약": translation/new-testament/index.md
+      - KJV 한글성경:
+          - translation/korean-bible/index.md
+          - 구약성경: translation/old-testament/index.md
+          - 신약성경: translation/new-testament/index.md
       - 참조 원문 성경:
           - source-texts/index.md
           - KJV 1769 영문 성경: source-texts/kjv1769/index.md
@@ -22,8 +24,10 @@ nav:
   - 성경 주석:
       - 주석 안내: commentary/index.md
       - 성경 해석의 원칙: commentary/principles.md
-      - "KJV 한글성경주석: 구약": commentary/old-testament/index.md
-      - "KJV 한글성경주석: 신약": commentary/new-testament/index.md
+      - KJV 한글성경주석:
+          - commentary/korean-bible/index.md
+          - 구약성경: commentary/old-testament/index.md
+          - 신약성경: commentary/new-testament/index.md
       - 참고 배경 자료:
           - commentary/background/index.md
           - 구약 배경 자료: commentary/references.md
@@ -76,6 +80,7 @@ plugins:
             프로젝트 안내: Project Overview
             번역 원칙: Translation Principles
             KJV 참고 자료: KJV Resources
+            KJV 한글성경: KJV Korean Bible
             "KJV 한글성경: 구약": "KJV Korean Bible: Old Testament"
             "KJV 한글성경: 신약": "KJV Korean Bible: New Testament"
             참조 원문 성경: Reference Bible Texts
@@ -92,6 +97,7 @@ plugins:
             성경 주석: Bible Commentary
             주석 안내: Commentary Overview
             성경 해석의 원칙: Principles of Biblical Interpretation
+            KJV 한글성경주석: KJV Korean Bible Commentary
             "KJV 한글성경주석: 구약": "KJV Korean Bible Commentary: Old Testament"
             "KJV 한글성경주석: 신약": "KJV Korean Bible Commentary: New Testament"
             참고 배경 자료: Background Resources
