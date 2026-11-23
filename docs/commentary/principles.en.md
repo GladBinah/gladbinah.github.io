@@ -1,6 +1,10 @@
-# How We Read Scripture
+# Principles of Biblical Interpretation
 
 *Together Before Scripture — Principles of Biblical Interpretation and Commentary*
+
+## How We Read Scripture
+
+This project approaches the Bible as Scripture written through human authors under divine inspiration. Yet readers are not required to share that belief before exploring its message. We first seek to understand what the biblical authors intended to communicate within their historical, linguistic, and literary contexts, while recognizing that each reader must decide whether to accept that message.
 
 ## Nine Principles of Biblical Interpretation
 
