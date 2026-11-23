@@ -1,0 +1,118 @@
+site_name: 성경 앞의 우리
+site_description: 함께 읽고, 함께 묻다 — Together Before Scripture
+site_url: https://gladbinah.github.io/
+site_author: GladBinah
+repo_url: https://github.com/GladBinah/gladbinah.github.io
+repo_name: GladBinah/gladbinah.github.io
+edit_uri: edit/main/docs/
+
+nav:
+  - 홈: index.md
+  - 성경 번역:
+      - 프로젝트 안내: translation/index.md
+      - 번역 원칙: translation/principles.md
+      - "KJV 한글성경: 구약": translation/old-testament/index.md
+      - "KJV 한글성경: 신약": translation/new-testament/index.md
+      - 참조 원문 성경:
+          - source-texts/index.md
+          - KJV 1769 영문 성경: source-texts/kjv1769/index.md
+          - Scrivener 1894 그리스어: source-texts/scrivener1894/index.md
+          - 개역한글판 (1961): source-texts/krv1961/index.md
+      - KJV 참고 영상·자료: translation/references.md
+  - 성경 주석:
+      - 주석 안내: commentary/index.md
+      - 성경 해석의 원칙: commentary/principles.md
+      - 구약 배경 자료: commentary/references.md
+      - 신약 배경 자료: commentary/nt-resources.md
+  - 소개 · 참여:
+      - 프로젝트 소개: about.md
+      - 저작권 및 AI 활용: policies/index.md
+      - 기여 및 수정 안내: policies/contributing.md
+
+theme:
+  name: material
+  language: ko
+  logo: assets/logo.png
+  favicon: assets/logo.png
+  palette:
+    scheme: slate
+    primary: black
+    accent: amber
+  features:
+    - navigation.tabs
+    - navigation.indexes
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+  icon:
+    repo: fontawesome/brands/github
+
+plugins:
+  - search:
+      lang:
+        - ko
+        - en
+  - i18n:
+      docs_structure: suffix
+      fallback_to_default: true
+      languages:
+        - locale: ko
+          name: 한국어
+          default: true
+          build: true
+        - locale: en
+          name: English
+          build: true
+          site_name: Together Before Scripture
+          site_description: Read Together, Ask Together
+          nav_translations:
+            홈: Home
+            성경 번역: Bible Translation
+            프로젝트 안내: Project Overview
+            번역 원칙: Translation Principles
+            KJV 참고 자료: KJV Resources
+            "KJV 한글성경: 구약": "KJV Korean Bible: Old Testament"
+            "KJV 한글성경: 신약": "KJV Korean Bible: New Testament"
+            참조 원문 성경: Reference Bible Texts
+            자료 안내: Source Text Overview
+            KJV 1769 영문 성경: KJV 1769 English Bible
+            개역한글판 (1961): Korean Revised Version (1961)
+            KJV 참고 영상·자료: KJV Reference Videos & Resources
+            KJV 1769 원문 자료: KJV 1769 Source Text
+            Scrivener 1894 그리스어: Scrivener 1894 Greek
+            개역한글 원문 자료: 1961 Korean Revised Version
+            한국어 KJV 대조 링크: Korean KJV Comparison Sources
+            구약성경: Old Testament
+            신약성경: New Testament
+            성경 주석: Bible Commentary
+            주석 안내: Commentary Overview
+            성경 해석의 원칙: Principles of Biblical Interpretation
+            구약 배경 자료: Old Testament Resources
+            신약 배경 자료: New Testament Resources
+            소개 · 참여: About & Contribute
+            프로젝트 소개: Project Overview
+            저작권 및 AI 활용: Copyright & AI Use
+            기여 및 수정 안내: Contributing & Revisions
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+
+extra_css:
+  - stylesheets/extra.css
+
+extra:
+  social:
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/@GladBinah
+      name: YouTube — 성경 앞의 우리
+    - icon: fontawesome/brands/github
+      link: https://github.com/GladBinah
+      name: GitHub — GladBinah
+
+copyright: "© GladBinah · 자료별 이용 조건은 저작권 및 AI 활용 안내 참조"

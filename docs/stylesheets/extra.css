@@ -1,0 +1,25 @@
+/* Quiet, high-contrast reading theme for Together Before Scripture */
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color: #0d0d0e;
+  --md-default-fg-color: #edeae4;
+  --md-primary-fg-color: #101011;
+  --md-accent-fg-color: #e5cba0;
+  --md-typeset-a-color: #e5cba0;
+  --md-code-bg-color: #1b1b1d;
+}
+.md-header, .md-tabs { background-color: #101011; }
+.md-typeset { font-size: .79rem; line-height: 1.9; }
+.md-typeset h1 { font-weight: 700; letter-spacing: -.025em; }
+.md-typeset h2 { border-bottom: 1px solid rgba(255,255,255,.1); padding-bottom: .35rem; }
+.md-typeset .md-button { border-radius: .22rem; }
+.md-typeset .md-button--primary { background: #e5d5b9; border-color: #e5d5b9; color: #171717; }
+
+/* Visually distinguish collapsible second-level navigation from its parent. */
+.md-sidebar--primary .md-nav__item--nested:not(.md-nav__item--section) > .md-nav > .md-nav__list {
+  margin-left: 0.35rem;
+  padding-left: 0.7rem;
+  border-left: 1px solid rgba(229, 203, 160, 0.38);
+}
+.md-sidebar--primary .md-nav__item--nested:not(.md-nav__item--section) > .md-nav__container .md-nav__icon {
+  color: #e5cba0;
+}

@@ -1,0 +1,45 @@
+name: One-time clean public history baseline
+
+on:
+  push:
+    paths:
+      - ".github/workflows/reset-public-history.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  reset:
+    if: github.repository == 'GladBinah/gladbinah.github.io' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Replace public main with an orphan root commit, without changing website files
+        shell: bash
+        run: |
+          set -euo pipefail
+          expected_prior="d4575d37a800a46ef3ea7e18d74a30cef7d77925"
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          test "$(git rev-parse HEAD^)" = "$expected_prior"
+          only_changed="$(git diff-tree --no-commit-id --name-only -r HEAD)"
+          if [ "$only_changed" != ".github/workflows/reset-public-history.yml" ]; then
+            echo "::error::Unexpected changes detected before branch rewrite: $only_changed"
+            exit 1
+          fi
+          # The preceding published HEAD is already backed up and clone-tested
+          # in private repository GladBinah/bible-project-internal.
+          old_tree="$(git rev-parse 'HEAD^{tree}')"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout --orphan public-clean-baseline HEAD
+          git add -A
+          git commit -m "Initial public website baseline"
+          test "$(git rev-parse 'HEAD^{tree}')" = "$old_tree"
+          test "$(git rev-list --count HEAD)" = 1
+          git push --force-with-lease="refs/heads/main:$GITHUB_SHA" origin HEAD:refs/heads/main
+          actual="$(git ls-remote origin refs/heads/main | cut -f1)"
+          test "$actual" = "$(git rev-parse HEAD)"
+          echo "Public main replaced with a one-commit root; published files are unchanged." >> "$GITHUB_STEP_SUMMARY"
