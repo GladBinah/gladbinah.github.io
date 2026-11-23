@@ -17,6 +17,7 @@ nav:
           - 신약성경: translation/new-testament/index.md
       - 참조 원문 성경:
           - source-texts/index.md
+          - 마소라 본문 (WLC): source-texts/wlc/index.md
           - KJV 1769 영문 성경: source-texts/kjv1769/index.md
           - Scrivener 1894 그리스어: source-texts/scrivener1894/index.md
           - 개역한글판 (1961): source-texts/krv1961/index.md
@@ -84,6 +85,7 @@ plugins:
             "KJV 한글성경: 구약": "KJV Korean Bible: Old Testament"
             "KJV 한글성경: 신약": "KJV Korean Bible: New Testament"
             참조 원문 성경: Reference Bible Texts
+            마소라 본문 (WLC): Masoretic Text (WLC)
             자료 안내: Source Text Overview
             KJV 1769 영문 성경: KJV 1769 English Bible
             개역한글판 (1961): Korean Revised Version (1961)

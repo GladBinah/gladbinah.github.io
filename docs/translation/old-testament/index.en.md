@@ -4,7 +4,7 @@ An Old Testament Korean translation is also planned, to be developed book by boo
 
 ## Textual starting point
 
-The **Masoretic Text (MT)** serves as the starting point for the Old Testament, with the KJV as an important comparison translation. Where the **Septuagint (LXX)** or **Dead Sea Scrolls (DSS)** preserve materially different readings, we will compare textual evidence, original-language context, and interpretive consequences. Passages such as Deuteronomy 32:8 will receive particular attention, with significant alternatives and the reasons for textual decisions recorded.
+The **Masoretic Text (MT)** serves as the starting point for the Old Testament, with the publicly available [Westminster Leningrad Codex (WLC)](../../source-texts/wlc/index.md) as a primary Hebrew reference and the KJV as an important comparison translation. Where the **Septuagint (LXX)** or **Dead Sea Scrolls (DSS)** preserve materially different readings, we will compare textual evidence, original-language context, and interpretive consequences. Passages such as Deuteronomy 32:8 will receive particular attention, with significant alternatives and the reasons for textual decisions recorded.
 
 KJV wording will be distinguished from proposed renderings based on alternative Hebrew readings. As individual biblical books are approved, the index will link to their **passage coverage, book-specific versions, revision records, and related commentary**.
 

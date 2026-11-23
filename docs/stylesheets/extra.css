@@ -23,3 +23,11 @@
 .md-sidebar--primary .md-nav__item--nested:not(.md-nav__item--section) > .md-nav__container .md-nav__icon {
   color: #e5cba0;
 }
+
+/* Hebrew and Biblical Aramaic original-script passages; bidi isolation. */
+.md-typeset .wlc-hebrew {
+  font-family: "Noto Serif Hebrew", "SBL Hebrew", "Ezra SIL", "Times New Roman", serif;
+  font-size: 1.09em;
+  unicode-bidi: isolate;
+  line-height: 1.85;
+}
