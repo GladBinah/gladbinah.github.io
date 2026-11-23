@@ -29,11 +29,7 @@ This is why I can value and prefer the KJV **without claiming it is the only tru
 
 The [Old Testament](old-testament/index.md) begins with the KJV English translation tradition and the Hebrew Masoretic Text on which the KJV principally relied, while examining significant alternative readings preserved in the Septuagint and the Dead Sea Scrolls. The [New Testament](new-testament/index.md) begins with the KJV English translation tradition, the Textus Receptus, and the Byzantine textual tradition. We do not assume that every textual or translation choice is necessarily correct; significant variants will be documented along with the evidence supporting each reading and its implications for interpretation.
 
-Work on each testament will proceed gradually, with important textual questions identified during Old Testament commentary study also preserved for later translation review. **No approved Old or New Testament translation passages have yet been published.** Each index will record book-specific versions and passage coverage as they are approved.
-
-## Current status
-
-The translation principles and reference Bible texts are now available on this website. The independent Korean translation and English KJV Reading Edition are still in preparation, with the New Testament as the initial priority and the Old Testament as a parallel, longer-term project.
+Work on each testament will proceed gradually, with important textual questions identified during Old Testament commentary study also preserved for later translation review. Publication coverage and progress are summarized on the [KJV Korean Bible overview](korean-bible/index.md).
 
 ## Process
 
