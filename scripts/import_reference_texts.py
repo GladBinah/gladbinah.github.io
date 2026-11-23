@@ -2,8 +2,8 @@
 """Import pinned public-domain KJV 1769 and Scrivener 1894 NT data.
 
 Usage: python scripts/import_reference_texts.py
-The 1961 KRV comes exclusively from the user-supplied file, so this script does
-not download or modify the independently archived KRV Markdown books.
+The archived 1961 Korean Revised Version is maintained separately. This script
+does not download or alter its verse text; it only standardizes source credits.
 """
 from __future__ import annotations
 import hashlib

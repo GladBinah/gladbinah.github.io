@@ -22,8 +22,8 @@ The KJV is an English translation, distinct from the Hebrew and Greek texts. In 
 
 ## 3. Review and versioning
 
-- Work proceeds passage by passage: **AI-assisted draft → discussion and review → approved text**.
-- Each biblical book has a separate Markdown file and version number; English KJV editing and Korean translation maintain separate revision histories.
+- Work proceeds passage by passage: **AI-assisted draft → the editor's review and discussion → approved text**.
+- Each biblical book has its own text and version record; English KJV editing and Korean translation maintain separate revision histories.
 - Significant decisions include evidence, alternatives, and uncertainties.
 - Constructive objections are documented, including consequential arguments that are ultimately not adopted.
 - Previously published versions remain traceable through GitHub history.

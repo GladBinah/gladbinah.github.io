@@ -9,7 +9,7 @@ I once left Christianity entirely and later returned to faith through reading Sc
 
 The **1961 Korean Revised Version (개역한글)** is an alternative whose economic copyright protection has expired in South Korea. Nevertheless, I wanted to retain the KJV tradition that had shaped my study. I therefore decided to prepare an independent Korean translation based on the KJV, consulting the traditional, dignified Korean style of 개역한글 only after producing an independent initial draft.
 
-The goal is to make this translation freely available for noncommercial reading, sharing, and adaptation. I plan to begin primarily with the New Testament and gradually work through the Old Testament, preserving the texts, significant translation decisions, and revision histories in Markdown for public review.
+The goal is to make this translation freely available for noncommercial reading, sharing, and adaptation. I plan to begin primarily with the New Testament and gradually work through the Old Testament, publishing the texts together with significant translation decisions and revision histories.
 
 ## Why the KJV?
 
@@ -33,7 +33,7 @@ Work on each testament will proceed gradually, with important textual questions 
 
 ## Current status
 
-The website and translation principles are being prepared. The New Testament remains the initial priority, while Old Testament translation is also planned as a long-term project.
+The translation principles and reference Bible texts are now available on this website. The independent Korean translation and English KJV Reading Edition are still in preparation, with the New Testament as the initial priority and the Old Testament as a parallel, longer-term project.
 
 ## Process
 
@@ -49,7 +49,7 @@ AI supports initial drafting and research comparisons; final decisions require h
 
 ## Source text references
 
-The [KJV 1769 standard reference (66 books)](../source-texts/kjv1769/index.md) and [Scrivener 1894 Greek New Testament (27 books)](../source-texts/scrivener1894/index.md) are available as book-level Markdown source materials, distinct from the project's approved edited English reading edition and independent Korean translation. The [1961 Korean Revised Version (66 books)](../source-texts/krv1961/index.md) is available **only for Korean style review after an independent translation draft**. Existing Korean KJV translations are consulted through [their publishers' official sites](../source-texts/index.md) when needed, without reproducing them in bulk.
+The [KJV 1769 English reference text (66 books)](../source-texts/kjv1769/index.md) and the [Scrivener 1894 Greek New Testament (27 books)](../source-texts/scrivener1894/index.md) can be read book by book. They serve as **reference texts for comparison** and are distinct from the project's separately prepared English KJV Reading Edition and independent Korean translation. The [1961 Korean Revised Version (66 books)](../source-texts/krv1961/index.md) preserves the wording of that established translation and is consulted **only for Korean style review after completing an independent initial draft**. Other Korean KJV translations are consulted through [their publishers' official websites](../source-texts/index.md) when needed, without reproducing their texts in bulk.
 
 ## English KJV Reading Edition and language selection
 
