@@ -22,8 +22,12 @@ nav:
   - 성경 주석:
       - 주석 안내: commentary/index.md
       - 성경 해석의 원칙: commentary/principles.md
-      - 구약 배경 자료: commentary/references.md
-      - 신약 배경 자료: commentary/nt-resources.md
+      - "KJV 한글성경주석: 구약": commentary/old-testament/index.md
+      - "KJV 한글성경주석: 신약": commentary/new-testament/index.md
+      - 참고 배경 자료:
+          - commentary/background/index.md
+          - 구약 배경 자료: commentary/references.md
+          - 신약 배경 자료: commentary/nt-resources.md
   - 소개 · 참여:
       - 프로젝트 소개: about.md
       - 저작권 및 AI 활용: policies/index.md
@@ -88,6 +92,9 @@ plugins:
             성경 주석: Bible Commentary
             주석 안내: Commentary Overview
             성경 해석의 원칙: Principles of Biblical Interpretation
+            "KJV 한글성경주석: 구약": "KJV Korean Bible Commentary: Old Testament"
+            "KJV 한글성경주석: 신약": "KJV Korean Bible Commentary: New Testament"
+            참고 배경 자료: Background Resources
             구약 배경 자료: Old Testament Resources
             신약 배경 자료: New Testament Resources
             소개 · 참여: About & Contribute

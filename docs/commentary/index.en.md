@@ -1,20 +1,16 @@
 # Bible Commentary
 
-**Reading Scripture together · Passage by passage · Questions and evidence**
+[📖 KJV Korean Bible Commentary: Old Testament](old-testament/index.md){ .md-button .md-button--primary }
+[📖 KJV Korean Bible Commentary: New Testament](new-testament/index.md){ .md-button .md-button--primary }
 
-The commentary project will examine each book in meaningful reading units, beginning with historical, grammatical, and literary context. Where justified, it will explore canonical connections and theological implications. The editor will share current conclusions while remaining open to questions, stronger arguments, and justified revisions. Important changes will be documented.
+## Purpose of the Bible Commentary Project
 
-**The translation project is currently the priority. No book-by-book commentary texts have been published on this website yet.** The approach guiding the commentaries is described in the [Principles of Biblical Interpretation](principles.md).
+This project examines Scripture book by book, organizing each text into meaningful reading units and gradually building a collection of commentaries and discussions. We begin with the historical, grammatical, and literary meaning of each passage, then consider its connections across the biblical canon and its theological significance where warranted.
 
-## Old Testament background resources
+I hope to share my current understanding without presenting it as a final answer, and to invite readers to ask questions and assess the evidence together. Better evidence and well-grounded criticism may lead to revisions, with significant changes and their reasons documented.
 
-Selected resources on the historical setting of the Pentateuch, Joshua, and relationships between biblical texts and other ancient literature are collected separately.
+## Current Status
 
-[Browse Old Testament Resources](references.md){ .md-button }
+The Bible translation project is currently the priority, and **no book-by-book commentary texts have yet been published on this website**. Reviewed and approved passages from the Old and New Testaments will be published progressively.
 
-## New Testament background resources
-
-References on the New Testament's historical setting, manuscript transmission, and early Christianity will be collected here as they are reviewed and selected.
-
-[Browse New Testament Resources](nt-resources.md){ .md-button }
-
+Our approach is explained in the [Principles of Biblical Interpretation](principles.md). Historical and cultural resources supporting the commentaries are listed under [Background Resources](background/index.md).
