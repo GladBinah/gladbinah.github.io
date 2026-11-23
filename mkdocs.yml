@@ -17,10 +17,10 @@ nav:
           - 신약성경: translation/new-testament/index.md
       - 참조 원문 성경:
           - source-texts/index.md
-          - 마소라 본문 (WLC): source-texts/wlc/index.md
           - KJV 1769 영문 성경: source-texts/kjv1769/index.md
-          - Scrivener 1894 그리스어: source-texts/scrivener1894/index.md
           - 개역한글판 (1961): source-texts/krv1961/index.md
+          - 마소라 본문 (WLC): source-texts/wlc/index.md
+          - Scrivener 1894 그리스어: source-texts/scrivener1894/index.md
       - KJV 참고 영상·자료: translation/references.md
   - 성경 주석:
       - 주석 안내: commentary/index.md
