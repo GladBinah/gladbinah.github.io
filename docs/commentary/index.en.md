@@ -9,8 +9,4 @@ This project examines Scripture book by book, organizing each text into meaningf
 
 I hope to share my current understanding without presenting it as a final answer, and to invite readers to ask questions and assess the evidence together. Better evidence and well-grounded criticism may lead to revisions, with significant changes and their reasons documented.
 
-## Current Status
-
-The Bible translation project is currently the priority, and **no book-by-book commentary texts have yet been published on this website**. Reviewed and approved passages from the Old and New Testaments will be published progressively.
-
 Our approach is explained in the [Principles of Biblical Interpretation](principles.md). Historical and cultural resources supporting the commentaries are listed under [Background Resources](background/index.md).

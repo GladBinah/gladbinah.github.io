@@ -2,6 +2,20 @@
 
 *Together Before Scripture — Principles of Biblical Interpretation and Commentary*
 
+## Nine Principles of Biblical Interpretation
+
+The following nine principles guide how this project reads Scripture and develops its commentaries. Each principle is explained in more detail in its corresponding section below.
+
+1. We first seek to understand what Scripture communicates
+2. We begin with the author's historical and cultural setting
+3. We acknowledge both the integrity and the limits of human authors
+4. We trust Scripture's truthfulness without forcing historical harmonizations
+5. We distinguish textual evidence, interpretation, inference, and application
+6. We do not treat any particular manuscript or translation as infallible
+7. We establish the original meaning before examining canonical connections
+8. We also examine the history of those who preserved and transmitted Scripture
+9. Commentaries are open to continued examination and revision
+
 ## 1. We first seek to understand what Scripture communicates
 
 I believe that the Bible is the Word of God, written by human authors under divine inspiration. But I do not require every reader to share that belief before beginning to read it.

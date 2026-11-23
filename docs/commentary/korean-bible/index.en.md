@@ -5,6 +5,8 @@ This section introduces our book-by-book Korean Bible commentaries, organized by
 - [Old Testament](../old-testament/index.md)
 - [New Testament](../new-testament/index.md)
 
-**No book-by-book commentary passages have yet been published.**
+## Current Status
+
+The Bible translation project is currently the priority, and **no Old or New Testament book-by-book commentary passages have yet been published on this website**. Reviewed and approved reading units will be published progressively.
 
 [Principles of Biblical Interpretation](../principles.md) · [Bible Commentary Project](../index.md)
