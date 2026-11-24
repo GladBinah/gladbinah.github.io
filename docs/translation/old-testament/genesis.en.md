@@ -1,7 +1,7 @@
 # Genesis
 
 <section class="scripture-reader" data-section="genesis/GEN-020" data-lang="en">
-<p class="sr-meta">Korean translation 0.2.0 · English KJV Reading Edition 0.2.0 · Published 2026-11-24</p>
+<p class="sr-meta">Korean translation 0.2.1 · English KJV Reading Edition 0.2.0 · Published 2026-11-24</p>
 <article class="sr-reading" lang="en">
 <h2 class="sr-reading-section" id="GEN-S01">1:1–2:3 — Creation and the Seventh Day</h2>
 <p class="sr-paragraph"><strong class="sr-verse-number">1:1</strong> In the beginning God created the heaven and the earth. <strong class="sr-verse-number">2</strong> And the earth was without form, and void; and darkness was upon the face of the deep. And the Spirit of God moved upon the face of the waters. <strong class="sr-verse-number">3</strong> And God said, “Let there be light”: and there was light. <strong class="sr-verse-number">4</strong> And God saw the light, that it was good: and God divided the light from the darkness. <strong class="sr-verse-number">5</strong> And God called the light Day, and the darkness he called Night. And the evening and the morning were the first day.</p>
