@@ -19,4 +19,4 @@ The same book page offers the approved Korean translation in the Korean view and
 
 | Book | Published coverage | Version |
 |---|---|---|
-| [Genesis](genesis.md) | 1:1–2:25 | Korean 0.2.1 / English 0.2.0 |
+| [Genesis](genesis.md) | 1:1–2:25 | Korean 0.2.2 / English 0.2.0 |

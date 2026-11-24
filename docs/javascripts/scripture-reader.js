@@ -137,6 +137,7 @@ link(sourcesLine,data.source_url,"Open Scriptures Hebrew Bible Project");
 sourcesLine.append(document.createTextNode(" · "));link(sourcesLine,data.license_url,"CC BY 4.0");
 sourcesLine.append(document.createTextNode(" · "));link(sourcesLine,lang==="ko"?"https://gladbinah.github.io/policies/":"https://gladbinah.github.io/en/policies/",tr("저작권 및 AI 활용 안내","Copyright & AI Use"));
 sourcesLine.append(document.createTextNode(" · "));link(sourcesLine,"https://github.com/GladBinah/gladbinah.github.io/issues",tr("오류 제보","Report an error"));
+const conventionLine=append(footer,"p","sr-footer-conventions");append(conventionLine,"span","",tr("한국어 본문의 괄호 속 추가 정보는 고유명사, 어휘 또는 언어유희 등을 이해하기 위한 편집적 병기이며 성경 본문 자체가 아닙니다. 굵은 ‘주’는 히브리어 하나님의 고유명사(יהוה)에 대응하고, 장·절 번호와 제목의 굵은 글씨는 구조적 표시입니다. ","Added parenthetical information in the Korean text is editorial supplementation for names, vocabulary or wordplay, not Scripture itself. Bold 주 represents the Hebrew divine name (יהוה); bold chapter and verse numbers and headings are structural markers. "));link(conventionLine,lang==="ko"?"https://gladbinah.github.io/translation/principles/":"https://gladbinah.github.io/en/translation/principles/",tr("번역 원칙","Translation Principles"));
 renderReading();renderOutline();}
 function setLang(l){if(dlg.open)dlg.close();lang=l;refresh()}
 function setMode(m){mode=m;view="reading";refresh()}

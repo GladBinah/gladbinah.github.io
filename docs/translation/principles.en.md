@@ -24,7 +24,7 @@ The Masoretic Text uses הָאָדָם with the definite article in Genesis 2:19
 
 On rereading the entire passage, we recognized a possible literary connection between the naming of the animals and the change in how the first human is designated. It is possible that the first human did not have a proper name until God named him, and that God gave him the name Adam only after he had named all the animals. Scripture does not explicitly record that act of naming or establish its timing, but the grammatical change in the Masoretic Text provides a clue that permits this interpretation. That clue is not visible in the KJV rendering. This judgment arose from independent examination of the original wording and narrative context, not from first applying an external commentary. We therefore adopted the direction of preserving the Masoretic grammatical distinction in our Korean translation so readers can discover this possibility for themselves.
 
-This case illustrates why the Masoretic Text may take precedence in order to preserve meaningful linguistic and literary features and interpretive possibilities, even when the KJV rendering is not necessarily erroneous. Adoption of this direction is distinct from publication of the revised text; consult the relevant Translation Notes and book revision history for the final wording and publication version.
+This case illustrates why the Masoretic Text may take precedence in order to preserve meaningful linguistic and literary features and interpretive possibilities, even when the KJV rendering is not necessarily erroneous. This decision is reflected in Korean Genesis 0.2.2. For the final wording, earlier versions and revision rationale, consult the [Genesis Translation Notes](old-testament/genesis.md#GEN-S02-T07) and the book's revision history.
 
 ## 2. Translation and presentation
 
@@ -35,6 +35,12 @@ This case illustrates why the Masoretic Text may take precedence in order to pre
 - Organize paragraphs around literary and semantic units, preserving chapter and verse references.
 - Mark direct speech with quotation marks. Where the speaker or the boundary of a quotation is disputed, document the editorial judgment.
 - Treat legitimate alternatives as alternatives rather than automatically labeling one an error.
+
+### Use of parentheses and boldface
+
+Parentheses are an editorial convention for preserving linguistic features that Korean alone cannot adequately convey or for helping readers understand the text accurately. Where needed, they may contain the English spelling of a proper name at its first occurrence in a book, a KJV English equivalent, the Hebrew, Aramaic or Greek source form, romanization, or Hanja to disambiguate homonyms, clarify wordplay or make relationships between words perceptible. Such added material is editorial supplementation rather than Scripture itself and must not be used to insert theological interpretation or commentary into the translation. Distinguish parentheses already present in the KJV from editorial parentheses added in Korean. Genesis 2:23 illustrates this convention with 여자(Woman, אִשָּׁה, ishah) and 남자(Man, אִישׁ, ish), preserving both the original wordplay and KJV capitalization.
+
+Boldface visually distinguishes expressions that the original or the KJV meaningfully differentiates. In particular, where KJV LORD represents the Hebrew divine name יהוה, the Korean **주** appears in bold. Do not add boldface merely because the translator regards a passage as important or wishes to emphasize a theological point. Any new use of boldface requires an explicit, consistently applied purpose and convention. Bold chapter and verse numbers and headings are structural editorial markers, not emphasis within the biblical text.
 
 ## 3. Review and versioning
 
