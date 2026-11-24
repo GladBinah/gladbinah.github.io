@@ -9,20 +9,96 @@ const link=(p,url,text)=>{if(!/^https:\/\//.test(url||""))return;const e=append(
 const heb=(p,text,cls="sr-hebrew")=>{let e=append(p,"bdi",cls,text);e.dir="rtl";e.lang="he";return e};
 const btn=(p,label,fn,cls="sr-control")=>{const e=append(p,"button",cls,label);e.type="button";e.onclick=fn;return e};
 root.replaceChildren();
-const head=append(root,"div","sr-header"), heading=append(head,"h2","sr-title"),meta=append(head,"div","sr-meta");
+const sections=data.sections||[];
+const pageTitle=root.closest(".md-content__inner")?.querySelector("h1");
+if(pageTitle)pageTitle.classList.add("sr-book-page-title");
+const head=append(root,"div","sr-header"),meta=append(head,"div","sr-meta");
+// The containing page has a book-only H1. A standalone preview without one needs a book title.
+const standaloneTitle=pageTitle?null:node("h1","sr-standalone-book-title");
+if(standaloneTitle)root.insertBefore(standaloneTitle,head);
 const vg=append(root,"div","sr-view-tabs");vg.setAttribute("role","group");
 const controls=append(root,"div","sr-controls sr-reading-controls"),lg=append(controls,"div","sr-controls-group"),mg=append(controls,"div","sr-controls-group");lg.setAttribute("role","group");mg.setAttribute("role","group");
 const koBtn=btn(lg,"한국어",()=>setLang("ko")),enBtn=btn(lg,"영어",()=>setLang("en"));
 const readBtn=btn(vg,"",()=>showReading(),"sr-view-tab"),notesBtn=btn(vg,"",()=>showNotes(),"sr-view-tab");
 const plainBtn=btn(mg,"",()=>setMode("plain")),studyBtn=btn(mg,"",()=>setMode("study"));
-const tip=append(root,"p","sr-tip"),reading=append(root,"article","sr-reading"),notesView=append(root,"section","sr-notes");
+const mobileOutline=sections.length?append(root,"details","sr-outline-mobile"):null;
+const mobileSummary=mobileOutline?append(mobileOutline,"summary","sr-outline-mobile-title"):null;
+const mobileNav=mobileOutline?append(mobileOutline,"nav","sr-outline sr-outline-mobile-nav"):null;
+const tip=append(root,"p","sr-tip"),bodyLayout=append(root,"div","sr-body-layout"),bodyMain=append(bodyLayout,"div","sr-body-main"),reading=append(bodyMain,"article","sr-reading"),notesView=append(bodyMain,"section","sr-notes");
+let desktopNav=null;
+if(sections.length){
+ const sidebar=document.querySelector(".md-sidebar--secondary");
+ const inner=sidebar?.querySelector(".md-sidebar__inner");
+ if(sidebar&&inner){
+  sidebar.classList.add("sr-outline-sidebar");sidebar.hidden=false;sidebar.removeAttribute("aria-hidden");
+  inner.classList.add("sr-outline-host");
+  inner.querySelectorAll(":scope > .sr-outline-desktop").forEach(n=>n.remove());
+  desktopNav=append(inner,"nav","sr-outline sr-outline-desktop");
+ }else{
+  bodyLayout.classList.add("sr-body-with-inline-outline");
+  const aside=append(bodyLayout,"aside","sr-outline-fallback");
+  desktopNav=append(aside,"nav","sr-outline sr-outline-desktop");
+ }
+}
+const outlineLinks=[];
+let scrollQueued=false;
+const headingFor=(section,targetView=view)=>root.querySelector("#"+section.id+(targetView==="notes"?"-notes":""));
+function updateOutlinePosition(){
+ if(!root.isConnected||!sections.length)return;
+ const visible=sections.filter(s=>{const el=headingFor(s);return el&&!el.hidden&&el.getClientRects().length});
+ if(!visible.length){outlineLinks.forEach(({a})=>a.removeAttribute("aria-current"));return;}
+ const header=document.querySelector(".md-header"),tabs=document.querySelector(".md-tabs");
+ const boundary=Math.max(100,header?.getBoundingClientRect().bottom||0,tabs?.getBoundingClientRect().bottom||0)+40;
+ let current=visible[0];
+ for(const s of visible)if(headingFor(s).getBoundingClientRect().top<=boundary)current=s;
+ if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-4)current=visible.at(-1);
+ outlineLinks.forEach(({a,section})=>{if(section.id===current.id)a.setAttribute("aria-current","location");else a.removeAttribute("aria-current");});
+}
+function scheduleOutlinePosition(){if(scrollQueued)return;scrollQueued=true;requestAnimationFrame(()=>{scrollQueued=false;updateOutlinePosition();});}
+if(sections.length){
+ window.addEventListener("scroll",scheduleOutlinePosition,{passive:true});
+ window.addEventListener("resize",scheduleOutlinePosition,{passive:true});
+}
+function sectionHref(section,targetView=view){return "#"+section.id+(targetView==="notes"?"-notes":"");}
+function navigateSection(section,targetView=view,updateHash=true,focus=true){
+ if(view!==targetView){view=targetView;refresh();}
+ if(targetView==="notes"&&search.value){search.value="";filterNotes();}
+ if(mobileOutline)mobileOutline.open=false;
+ const target=headingFor(section,targetView);
+ if(!target)return;
+ if(updateHash&&location.hash!==sectionHref(section,targetView))history.pushState(null,"",sectionHref(section,targetView));
+ if(focus)target.focus({preventScroll:true});
+ target.scrollIntoView({block:"start",behavior:"instant"});
+ outlineLinks.forEach(({a,section:s})=>{if(s.id===section.id)a.setAttribute("aria-current","location");else a.removeAttribute("aria-current");});
+ scheduleOutlinePosition();
+}
+function renderOutline(){
+ if(!sections.length)return;
+ const label=tr("목차","Outline");
+ mobileSummary.textContent=label;
+ outlineLinks.length=0;
+ for(const nav of [desktopNav,mobileNav]){
+  if(!nav)continue;nav.replaceChildren();nav.setAttribute("aria-label",label);
+  if(nav===desktopNav)append(nav,"div","sr-outline-label",label);
+  const ul=append(nav,"ul","sr-outline-list");
+  for(const section of sections){
+   const li=append(ul,"li","sr-outline-item"),a=append(li,"a","sr-outline-link");
+   a.href=sectionHref(section);a.dataset.sectionId=section.id;
+   append(a,"span","sr-outline-range",section.coverage);
+   append(a,"span","sr-outline-name",section.title[lang]);
+   a.addEventListener("click",e=>{if(e.button!==0||e.ctrlKey||e.metaKey||e.shiftKey||e.altKey)return;e.preventDefault();navigateSection(section);});
+   outlineLinks.push({a,section});
+  }
+ }
+ updateOutlinePosition();scheduleOutlinePosition();
+}
 const noteHead=append(notesView,"h3","sr-subheading"),noteBar=append(notesView,"div","sr-notes-toolbar"),search=append(noteBar,"input","sr-search");
 search.type="search";search.addEventListener("input",()=>filterNotes());
 const expand=btn(noteBar,"",()=>noteList.querySelectorAll("details:not([hidden])").forEach(d=>d.open=true)),collapse=btn(noteBar,"",()=>noteList.querySelectorAll("details").forEach(d=>d.open=false));
 const notesCount=append(notesView,"p","sr-meta"),noteList=append(notesView,"div","sr-note-list");
 let noteSection=null;
 const noteSectionTitles=[];
-for(const n of data.notes){const group=(data.sections||[]).find(s=>n.id.startsWith(s.id+"-"));if(group&&group.id!==noteSection){noteSection=group.id;const h=append(noteList,"h4","sr-note-section",group.coverage+" — "+group.title[lang]);noteSectionTitles.push([h,group]);}const d=append(noteList,"details","sr-note");d.id=n.id;d.dataset.search=(n.title+" "+n.body_html.replace(/<[^>]+>/g," ")).toLowerCase();const s=append(d,"summary","",n.title);const body=append(d,"div","sr-note-body");body.lang="ko";body.innerHTML=n.body_html}
+for(const n of data.notes){const group=(data.sections||[]).find(s=>n.id.startsWith(s.id+"-"));if(group&&group.id!==noteSection){noteSection=group.id;const h=append(noteList,"h3","sr-note-section",group.coverage+" — "+group.title[lang]);h.id=group.id+"-notes";h.tabIndex=-1;noteSectionTitles.push([h,group]);}const d=append(noteList,"details","sr-note");d.id=n.id;d.dataset.search=(n.title+" "+n.body_html.replace(/<[^>]+>/g," ")).toLowerCase();const s=append(d,"summary","",n.title);const body=append(d,"div","sr-note-body");body.lang="ko";body.innerHTML=n.body_html}
 const extra=append(notesView,"div","sr-notes-extra");
 const extraPanels=[["대조 출처","Comparison sources",data.notes_sources_html],["나머지 절의 대조 및 공통 원칙","Other comparisons and shared principles",data.notes_general_html],["결정 및 수정 이력","Decision and revision history",data.notes_history_html]].map(([k,e,h])=>{const d=append(extra,"details","sr-note");const s=append(d,"summary","",k);const b=append(d,"div","sr-note-body");b.lang="ko";b.innerHTML=h;return [s,k,e]});
 const footer=append(root,"footer","sr-footer");
@@ -42,7 +118,7 @@ for(const s of spans){const a=Math.max(from,s.start),b=Math.min(to,s.end);if(b<=
 if(last<to)parent.append(document.createTextNode(raw.slice(last,to)));
 }
 for(const p of data.paragraphs){
-const section=starts.get(p[0]);if(section){const h=append(reading,"h3","sr-reading-section",section.coverage+" — "+section.title[lang]);h.id=section.id;}
+const section=starts.get(p[0]);if(section){const h=append(reading,"h2","sr-reading-section",section.coverage+" — "+section.title[lang]);h.id=section.id;h.tabIndex=-1;}
 const el=append(reading,"p","sr-paragraph");
 for(let i=0;i<p.length;i++){const ref=p[i];if(i)el.append(document.createTextNode(" "));const v=append(el,"span","sr-verse");v.id="sr-"+lang+"-"+ref.replace(":","-");const label=ref.endsWith(":1")||starts.has(ref)?ref:ref.split(":")[1];append(v,"strong","sr-verse-number",label);v.append(document.createTextNode(" "));const raw=data.verses[lang][ref],spans=data.typography?.[lang]?.[ref]||[];
 if(mode==="plain"){appendRange(v,raw,0,raw.length,spans);continue}
@@ -51,7 +127,7 @@ for(const a of links){const s=a.click_spans[lang];if(s.start<last||raw.slice(s.s
 appendRange(v,raw,last,raw.length,spans);
 }}
 }
-function refresh(){heading.textContent=data.book[lang]+" "+data.coverage+" — "+data.title[lang];meta.textContent=tr(`한국어 번역 ${data.version.ko} · 영어 편집본 ${data.version.en}`,`Korean translation ${data.version.ko} · KJV Reading Edition ${data.version.en}`)+(data.preview?tr(" · 출판 전 검토용"," · private publication preview"):data.publication_date?tr(" · 공개 "," · Published ")+data.publication_date:"");lg.setAttribute("aria-label",tr("읽기 언어","Reading language"));vg.setAttribute("aria-label",tr("자료 선택","Content view"));mg.setAttribute("aria-label",tr("읽기 방식","Reading mode"));koBtn.textContent=tr("한국어","Korean");enBtn.textContent=tr("영어","English");readBtn.textContent=tr("성경 본문","Scripture");notesBtn.textContent=tr("번역 기록","Translation Notes");plainBtn.textContent=tr("일반 읽기","Reading");studyBtn.textContent=tr("원어 학습","Original-language study");pressed(koBtn,lang==="ko");pressed(enBtn,lang==="en");pressed(readBtn,view==="reading");pressed(notesBtn,view==="notes");pressed(plainBtn,mode==="plain");pressed(studyBtn,mode==="study");controls.hidden=view!=="reading";reading.hidden=view!=="reading";notesView.hidden=view!=="notes";tip.hidden=view!=="reading"||mode!=="study";tip.textContent=tr("밑줄 친 핵심 어휘나 어구를 클릭하여 실제 히브리어와 사전 설명을 확인할 수 있습니다.","Select an underlined key word or phrase to explore its Hebrew text form and dictionary entries.");noteHead.textContent=tr("구절별 Translation Notes","Translation Notes (Korean)");search.placeholder=tr("구절·번역어·논점 검색","Search Korean translation notes");search.setAttribute("aria-label",search.placeholder);expand.textContent=tr("모두 펼치기","Expand all");collapse.textContent=tr("모두 접기","Collapse all");extraPanels.forEach(([s,k,e])=>s.textContent=lang==="ko"?k:e);filterNotes();footer.replaceChildren();
+function refresh(){if(pageTitle)pageTitle.textContent=data.book[lang];if(standaloneTitle)standaloneTitle.textContent=data.book[lang];meta.textContent=tr(`한국어 번역 ${data.version.ko} · 영어 편집본 ${data.version.en}`,`Korean translation ${data.version.ko} · KJV Reading Edition ${data.version.en}`)+(data.preview?tr(" · 출판 전 검토용"," · private publication preview"):data.publication_date?tr(" · 공개 "," · Published ")+data.publication_date:"");lg.setAttribute("aria-label",tr("읽기 언어","Reading language"));vg.setAttribute("aria-label",tr("자료 선택","Content view"));mg.setAttribute("aria-label",tr("읽기 방식","Reading mode"));koBtn.textContent=tr("한국어","Korean");enBtn.textContent=tr("영어","English");readBtn.textContent=tr("성경 본문","Scripture");notesBtn.textContent=tr("번역 기록","Translation Notes");plainBtn.textContent=tr("일반 읽기","Reading");studyBtn.textContent=tr("원어 학습","Original-language study");pressed(koBtn,lang==="ko");pressed(enBtn,lang==="en");pressed(readBtn,view==="reading");pressed(notesBtn,view==="notes");pressed(plainBtn,mode==="plain");pressed(studyBtn,mode==="study");controls.hidden=view!=="reading";reading.hidden=view!=="reading";notesView.hidden=view!=="notes";tip.hidden=view!=="reading"||mode!=="study";tip.textContent=tr("밑줄 친 핵심 어휘나 어구를 클릭하여 실제 히브리어와 사전 설명을 확인할 수 있습니다.","Select an underlined key word or phrase to explore its Hebrew text form and dictionary entries.");noteHead.textContent=tr("구절별 Translation Notes","Translation Notes (Korean)");search.placeholder=tr("구절·번역어·논점 검색","Search Korean translation notes");search.setAttribute("aria-label",search.placeholder);expand.textContent=tr("모두 펼치기","Expand all");collapse.textContent=tr("모두 접기","Collapse all");extraPanels.forEach(([s,k,e])=>s.textContent=lang==="ko"?k:e);filterNotes();footer.replaceChildren();
 const copyrightLine=append(footer,"p","sr-footer-license");
 append(copyrightLine,"span","",tr("한국어 번역 © GladBinah · ","Korean translation © GladBinah · "));
 link(copyrightLine,"https://creativecommons.org/licenses/by-nc-sa/4.0/","CC BY-NC-SA 4.0");
@@ -61,11 +137,11 @@ link(sourcesLine,data.source_url,"Open Scriptures Hebrew Bible Project");
 sourcesLine.append(document.createTextNode(" · "));link(sourcesLine,data.license_url,"CC BY 4.0");
 sourcesLine.append(document.createTextNode(" · "));link(sourcesLine,lang==="ko"?"https://gladbinah.github.io/policies/":"https://gladbinah.github.io/en/policies/",tr("저작권 및 AI 활용 안내","Copyright & AI Use"));
 sourcesLine.append(document.createTextNode(" · "));link(sourcesLine,"https://github.com/GladBinah/gladbinah.github.io/issues",tr("오류 제보","Report an error"));
-renderReading();}
+renderReading();renderOutline();}
 function setLang(l){if(dlg.open)dlg.close();lang=l;refresh()}
 function setMode(m){mode=m;view="reading";refresh()}
-function showReading(){view="reading";if(/^#GEN-S\d+-T\d+$/.test(location.hash))history.replaceState(null,"",location.pathname+location.search);refresh()}
-function showNotes(id){view="notes";refresh();if(id){search.value="";filterNotes();const d=document.getElementById(id);if(d&&root.contains(d)){d.open=true;d.scrollIntoView({block:"start"});d.querySelector("summary").focus({preventScroll:true});if(location.hash!=="#"+id)history.replaceState(null,"","#"+id)}}}
+function showReading(){view="reading";if(/^#GEN-S\d+-(?:T\d+|notes)$/.test(location.hash))history.replaceState(null,"",location.pathname+location.search);refresh()}
+function showNotes(id){view="notes";if(!id&&sections.some(s=>location.hash==="#"+s.id))history.replaceState(null,"",location.pathname+location.search);refresh();if(id){search.value="";filterNotes();const d=document.getElementById(id);if(d&&root.contains(d)){d.open=true;d.scrollIntoView({block:"start"});d.querySelector("summary").focus({preventScroll:true});if(location.hash!=="#"+id)history.replaceState(null,"","#"+id);scheduleOutlinePosition()}}}
 const label=(p,k,e)=>append(p,"div","sr-label",tr(k,e));
 const field=(p,k,e,value,he=false)=>{const f=append(p,"div","sr-field");label(f,k,e);if(he)heb(f,value);else append(f,"div","sr-field-value",value??"—");return f};
 // Render source hierarchy without cumulative font scaling or label-only rows.
@@ -103,7 +179,12 @@ const strong=append(card,"details","sr-detail");append(strong,"summary","","Stro
 const note=append(content,"section","sr-context");append(note,"h4","",tr("우리의 문맥별 번역 해설","Our contextual translation note"));append(note,"p","",lang==="ko"?context.context_ko:context.context_en);if(context.translation_note_id){btn(note,tr("상세 Translation Notes →","Translation Notes (Korean) →"),()=>{dlg.close();showNotes(context.translation_note_id)},"sr-notes-link")}
 const disclaimer=append(content,"div","sr-disclaimer");append(disclaimer,"p","",tr("한국어 사전 설명: ChatGPT 번역 및 원자료 대조. 개별 인간 검수는 필수 절차가 아닙니다. BDB 전자 자료의 수록 범위는 항목마다 다릅니다.","Korean dictionary explanations are translated and source-checked by ChatGPT without mandatory individual human review. BDB digital coverage varies by entry."));append(disclaimer,"span","",data.attribution+" · ");link(disclaimer,data.license_url,"CC BY 4.0");dlg.showModal();dlg.scrollTop=0;close.focus();
 }
-refresh();const route=()=>{const id=location.hash.slice(1);if(data.notes.some(n=>n.id===id))showNotes(id)};window.addEventListener("hashchange",route);route();
+refresh();
+const route=()=>{const id=location.hash.slice(1);if(data.notes.some(n=>n.id===id)){showNotes(id);return;}
+ const section=sections.find(s=>id===s.id||id===s.id+"-notes");
+ if(section)requestAnimationFrame(()=>navigateSection(section,id.endsWith("-notes")?"notes":"reading",false,false));
+};
+window.addEventListener("hashchange",route);route();
 }
 (function bootstrap(){
 const current=document.currentScript;
