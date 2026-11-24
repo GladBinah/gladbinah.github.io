@@ -23,9 +23,9 @@ Two projects will form the foundation of this website.
 
 **An independent Korean translation of the King James Version, with documented reasoning and revisions.**
 
-While studying the Bible and developing book-by-book commentaries, I encountered restrictions on reproducing and sharing existing Korean KJV translations, even for noncommercial purposes. This prompted me to begin a Korean translation that others can use, examine, and help improve. The New Testament remains the initial priority, while Old Testament translation will develop gradually alongside commentary work.
+While studying the Bible and developing book-by-book commentaries, I encountered restrictions on reproducing and sharing existing Korean KJV translations, even for noncommercial purposes. This prompted me to begin a Korean translation that others can use, examine, and help improve. Both testaments will develop section by section. The first published passage is [Genesis 1:1–2:3 (0.1.0)](translation/old-testament/genesis.md).
 
-The project begins with the New Testament. The translation follows the 1611 KJV tradition, using the standard-spelling edition for practical work. Its Korean style draws on the dignified language of the 1961 Korean Revised Version (개역한글). Existing Korean KJV translations are consulted as comparison materials. Where important interpretive questions arise, the Greek Textus Receptus and relevant usage are examined.
+We begin each section with the standard KJV English reading text and an independent preliminary Korean rendering. After deciding the structure, we examine the Masoretic Text for the Old Testament and the KJV, TR, and Greek textual evidence for the New Testament, comparing the existing Korean KJV editions. The 1961 Korean Revised Version is consulted only afterward for style. See our [Translation Principles](translation/principles.md).
 
 The reasons for undertaking this translation and choosing the KJV are explained in the [Bible Translation overview](translation/index.md), with [further reading and videos](translation/references.md). The text will be divided into meaningful paragraphs, with direct speech marked using quotation marks. Each biblical book will have its own version history, while important translation decisions, objections, and revisions will be recorded.
 

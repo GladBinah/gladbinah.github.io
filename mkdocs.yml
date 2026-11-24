@@ -13,7 +13,9 @@ nav:
       - 번역 원칙: translation/principles.md
       - KJV 한글성경:
           - translation/korean-bible/index.md
-          - 구약성경: translation/old-testament/index.md
+          - 구약성경:
+              - translation/old-testament/index.md
+              - 창세기: translation/old-testament/genesis.md
           - 신약성경: translation/new-testament/index.md
       - 참조 원문 성경:
           - source-texts/index.md
@@ -95,6 +97,7 @@ plugins:
             개역한글 원문 자료: 1961 Korean Revised Version
             한국어 KJV 대조 링크: Korean KJV Comparison Sources
             구약성경: Old Testament
+            창세기: Genesis
             신약성경: New Testament
             성경 주석: Bible Commentary
             주석 안내: Commentary Overview
@@ -120,6 +123,10 @@ markdown_extensions:
 
 extra_css:
   - stylesheets/extra.css
+  - stylesheets/scripture-reader.css
+
+extra_javascript:
+  - javascripts/scripture-reader.js
 
 extra:
   social:

@@ -8,7 +8,7 @@ Together Before Scripture distinguishes among its independent Korean Bible trans
 
 ### Korean Bible translation — CC BY-NC-SA 4.0
 
-The independent **Korean Bible translation**, once reviewed and published, is intended to be released under **[Creative Commons Attribution–NonCommercial–ShareAlike 4.0 International (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/)**. Each published book and version will identify what the license covers. The license permits copying, redistribution, and adaptation for noncommercial purposes. Anyone sharing the material must provide proper credit, identify the original source and license, preserve appropriate notices about changes, and indicate modifications. A publicly shared adaptation must use the same CC BY-NC-SA 4.0 license or a compatible license as allowed under the terms.
+The independent **Korean Bible translation**, when reviewed and published, is released under **[Creative Commons Attribution–NonCommercial–ShareAlike 4.0 International (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/)**. Each published book and version will identify what the license covers. The license permits copying, redistribution, and adaptation for noncommercial purposes. Anyone sharing the material must provide proper credit, identify the original source and license, preserve appropriate notices about changes, and indicate modifications. A publicly shared adaptation must use the same CC BY-NC-SA 4.0 license or a compatible license as allowed under the terms.
 
 We ask users to **make the original reading and its rationale traceable**: provide the book, passage, version, and ideally a stable link, and where practical show the original and revised wording together. Reproducing the original passage verbatim alongside an adaptation is a **project recommendation, not an additional legal requirement** of the Creative Commons license. We will not impose restrictions inconsistent with its permissions.
 
@@ -28,7 +28,7 @@ The **English KJV reading edition** will use a conventional standard-spelling te
 
 ### Scope and future editions
 
-CC BY-NC-SA 4.0 will apply only to specifically marked Korean translation texts. Unless otherwise noted, copyright is reserved in legally protectable site essays, commentaries, research records, and original explanations. Third-party sources, images, and videos retain their own conditions. A future publication may place an openly licensed Korean translation beside an All Rights Reserved commentary, with clearly separate notices; mere compilation does not automatically place the independent commentary under the translation's license. A rights holder may grant additional commercial permissions for their contributions.
+CC BY-NC-SA 4.0 applies only to specifically marked Korean translation texts. Unless otherwise noted, copyright is reserved in legally protectable site essays, commentaries, research records, and original explanations. Third-party sources, images, and videos retain their own conditions. A future publication may place an openly licensed Korean translation beside an All Rights Reserved commentary, with clearly separate notices; mere compilation does not automatically place the independent commentary under the translation's license. A rights holder may grant additional commercial permissions for their contributions.
 
 ## 2. AI assistance and human responsibility
 
@@ -37,6 +37,22 @@ This project uses **OpenAI ChatGPT extensively as a research and drafting assist
 The collaboration is comparable, as a working analogy, to a supervisor developing arguments with a postdoctoral researcher. I define the questions and direction; AI helps retrieve and compare historical and language sources, challenge assumptions, consider competing interpretations, and organize drafts. I then scrutinize the evidence, raise objections, request further checks, and revise the analysis. The analogy does not give an AI the qualifications, experience, accountability, or coauthorship of a human researcher.
 
 **AI-generated suggestions, human approval, and actual verification of evidence are separate steps.** AI can misstate quotations, manuscripts, publications, or scholarly positions. Important claims will therefore be checked against accessible primary sources where feasible; unverified material will not be presented as directly verified. AI is also expected to surface evidence contrary to my preferred interpretation, and unresolved uncertainties will remain visible. I retain responsibility for research goals, textual decisions, the formal adoption of external materials, and publication. **AI involvement is disclosed, but theological, scholarly, and editorial accountability remains mine.**
+
+### Korean lexicon translations and AI assistance
+
+The original-language study feature draws on existing Hebrew and Greek dictionaries and morphological resources.
+
+The translation of English dictionary entries into Korean, comparison with the original sources, and correction of those translations are delegated to OpenAI ChatGPT. Unlike the biblical translation and commentary, **I do not individually review or approve every Korean dictionary entry.** The resource is therefore not represented as a Korean lexicon independently reviewed by professional lexicographers.
+
+When biblical research and translation reveal an inaccurate or insufficient Korean dictionary rendering, we will revisit the source entry and revise the shared lexicon where warranted.
+
+General lexical definitions are distinguished from this project's contextual interpretations and translation judgments. Readers can consult the English source entries directly through the provided links, and significant revisions are documented.
+
+This evolving study resource is intended to support biblical reading and research. Corrections and suggestions from readers are welcome.
+
+### Original-language sources and licensing
+
+Old Testament study resources draw on the [Open Scriptures Hebrew Bible Project](https://github.com/openscriptures/morphhb) for WLC text, lemma and morphology data, and the [Open Scriptures Hebrew Lexicon](https://github.com/openscriptures/HebrewLexicon) for digital BDB and Strong entries. The WLC text and historical BDB and Strong dictionary texts are in the public domain; the project's additional data and dictionary XML files are licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Selected source entries are extracted and restructured, with Korean definitions and summaries and contextual notes added. The relevant edition and source links appear in the dictionary entries. These third-party terms are separate from the Korean Bible translation's CC BY-NC-SA 4.0 license.
 
 ## 3. Open review, revision history, and contributor credit
 

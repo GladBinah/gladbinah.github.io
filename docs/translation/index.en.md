@@ -9,7 +9,7 @@ I once left Christianity entirely and later returned to faith through reading Sc
 
 The **1961 Korean Revised Version (개역한글)** is an alternative whose economic copyright protection has expired in South Korea. Nevertheless, I wanted to retain the KJV tradition that had shaped my study. I therefore decided to prepare an independent Korean translation based on the KJV, consulting the traditional, dignified Korean style of 개역한글 only after producing an independent initial draft.
 
-The goal is to make this translation freely available for noncommercial reading, sharing, and adaptation. I plan to begin primarily with the New Testament and gradually work through the Old Testament, publishing the texts together with significant translation decisions and revision histories.
+The goal is to make this translation freely available for noncommercial reading, sharing, and adaptation. Both testaments will develop book by book and section by section, with the texts, significant translation decisions, and revision histories published together.
 
 ## Why the KJV?
 
@@ -33,11 +33,11 @@ Work on each testament will proceed gradually, with important textual questions 
 
 ## Process
 
-1. Draft Old Testament passages beginning with the Masoretic Text, comparing the KJV and significant ancient textual evidence where appropriate, and prepare New Testament drafts passage by passage from the KJV.
-2. Compare significant choices with existing Korean KJV translations, refining wording, tone, paragraphs, and speech boundaries.
-3. Examine Masoretic, Septuagint, and Dead Sea Scroll evidence when substantial Old Testament variants arise, and consult the Greek Textus Receptus and relevant usage for New Testament questions.
-4. Discuss and approve a revised passage, then incorporate it into the relevant book.
-5. Document significant decisions and track book-specific revisions and public criticism.
+1. Use the KJV English reading text and an independent preliminary Korean rendering to settle the section title, paragraphing, and quotation boundaries.
+2. After settling the structure, the AI examines the original languages and all three Korean KJV editions throughout the section, prepares a consolidated revised draft, and identifies the material translation issues.
+3. Review the alternatives and their evidence together; discuss only the remaining substantive objections after editorial decisions.
+4. The AI integrates the decisions, prepares Translation Notes and original-language resources, and performs final proofreading.
+5. Publish only after separate authorization, preserving book-specific versions and the record of translation decisions and revisions.
 
 AI supports initial drafting and research comparisons; final decisions require human review. Neither perfection nor infallibility is claimed.
 
