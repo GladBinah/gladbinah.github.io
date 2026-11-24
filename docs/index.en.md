@@ -17,11 +17,11 @@ I am a Christian who believes the Bible is the Word of God. That was not always 
 
 I do not present myself as a professional theologian or Bible translator, nor do I claim that my interpretations are final. I am a Christian working in academia who wishes to share my current understanding, listen to better arguments, and revise my conclusions when the evidence warrants it.
 
-Two projects will form the foundation of this website.
+Two distinct but interconnected projects form the foundation of this website. Readers can begin with the Bible translation to read Scripture itself, or with the commentary to explore the meaning of individual passages and the message of each book as a whole.
 
 ## Project 1 · Bible Translation
 
-**An independent Korean translation of the King James Version, with documented reasoning and revisions.**
+**An independent Korean Bible translation and an English KJV Reading Edition, with original-language resources and documented translation decisions.**
 
 While studying the Bible and developing book-by-book commentaries, I encountered restrictions on reproducing and sharing existing Korean KJV translations, even for noncommercial purposes. This prompted me to begin a Korean translation that others can use, examine, and help improve. Both testaments will develop section by section. The current published passage is [Genesis 1:1–2:25 (Korean 0.2.2 / English 0.2.0)](translation/old-testament/genesis.md).
 
@@ -29,7 +29,7 @@ We begin each section with the standard KJV English reading text and an independ
 
 The reasons for undertaking this translation and choosing the KJV are explained in the [Bible Translation overview](translation/index.md), with [further reading and videos](translation/references.md). The text will be divided into meaningful paragraphs, with direct speech marked using quotation marks. Each biblical book will have its own version history, while important translation decisions, objections, and revisions will be recorded.
 
-This is not presented as a perfect or definitive translation. **Openness to review and correction is a central part of the project.**
+This is not presented as a perfect or definitive translation. **Openness to review and correction is a central part of the project.** Readers can switch between the Korean text and the English KJV Reading Edition. We are also developing original-language study resources and Translation Notes so readers can examine key words, translation choices, and the reasons for revisions.
 
 [Explore Bible Translation](translation/index.md){ .md-button .md-button--primary }
 
@@ -38,11 +38,11 @@ This is not presented as a perfect or definitive translation. **Openness to revi
 
 ## Project 2 · Bible Commentary
 
-**Reading Scripture book by book, in meaningful passages, with questions and careful interpretation.**
+**Reading Scripture book by book, exploring individual passages and the message of each book as a whole.**
 
-The commentaries begin with the historical, grammatical, and literary meaning of each passage. Where warranted, they also examine connections across Scripture and theological implications. Questions and constructive criticism are welcome, and important changes in interpretation will be documented.
+Each commentary introduces the historical setting and overall structure of the book, develops summaries and explanations of meaningful reading units, and concludes with a synthesis of the book as a whole. It begins with the historical, grammatical, and literary meaning of the text before considering canonical connections and theological implications where warranted. Questions and constructive criticism are welcome, and significant revisions will be documented.
 
-The commentary project will be published gradually after the translation project is under way.
+The commentary remains an independent work, distinct from the Bible translation, while the website is designed to let readers read the relevant biblical text alongside it. Where our translation is published, it will serve as the primary Korean reading text, with links to relevant translation decisions and original-language resources. No book-by-book commentary passages have been published yet; approved portions will be released progressively.
 
 [Explore Bible Commentary](commentary/index.md){ .md-button }
 

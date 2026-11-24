@@ -182,6 +182,10 @@ const disclaimer=append(content,"div","sr-disclaimer");append(disclaimer,"p","",
 }
 refresh();
 const route=()=>{const id=location.hash.slice(1);if(data.notes.some(n=>n.id===id)){showNotes(id);return;}
+ const verseMatch=/^sr-(ko|en)-(\d+)-(\d+)(-study)?$/.exec(id);
+ if(verseMatch){const [,targetLang,c,v,study]=verseMatch;const ref=c+":"+v;if(typeof data.verses?.[targetLang]?.[ref]!=="string")return;
+  lang=targetLang;view="reading";mode=study?"study":"plain";refresh();
+  requestAnimationFrame(()=>{const target=document.getElementById("sr-"+targetLang+"-"+c+"-"+v);if(target&&root.contains(target))target.scrollIntoView({block:"start",behavior:"instant"});});return;}
  const section=sections.find(s=>id===s.id||id===s.id+"-notes");
  if(section)requestAnimationFrame(()=>navigateSection(section,id.endsWith("-notes")?"notes":"reading",false,false));
 };

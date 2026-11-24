@@ -18,3 +18,9 @@ To pursue this purpose, I will study Scripture book by book, dividing each text 
 I will distinguish what the text explicitly states from my interpretations and inferences, and consider significant alternative views together with their evidence. These commentaries represent my current understanding rather than a final or unquestionable answer. When stronger evidence or well-founded criticism calls for revision, I will explain and record the changes.
 
 The approach behind these commentaries is explained in the [Principles of Biblical Interpretation](principles.md). Relevant historical and cultural resources are listed under [Background Resources](background/index.md).
+
+## Reading Scripture with the Commentary
+
+Each commentary has its own structure: a book introduction, optional Part-level guidance and synthesis, Section-level summaries and exposition, and concluding remarks. The commentary remains independently readable, while its reading units are designed to display the relevant published Korean translation or English KJV Reading Edition. Where the project translation is unavailable, this will be indicated so readers can use their own Bibles. Scripture and commentary retain their own literary structures.
+
+Where available, our published translation serves as the primary Korean reading and quotation edition. Relevant translation decisions are linked to Translation Notes. The translation and commentary retain independent versions and [rights policies](../policies/index.md); changes affecting quotations or arguments prompt review rather than automatic revisions of the commentary.

@@ -24,10 +24,10 @@ nav:
           - 마소라 본문 (WLC): source-texts/wlc/index.md
           - Scrivener 1894 그리스어: source-texts/scrivener1894/index.md
       - KJV 참고 영상·자료: translation/references.md
-  - 성경 주석:
-      - 주석 안내: commentary/index.md
+  - 성경 해설:
+      - 해설 안내: commentary/index.md
       - 성경 해석의 원칙: commentary/principles.md
-      - KJV 한글성경주석:
+      - KJV 한글성경 해설:
           - commentary/korean-bible/index.md
           - 구약성경: commentary/old-testament/index.md
           - 신약성경: commentary/new-testament/index.md
@@ -99,12 +99,12 @@ plugins:
             구약성경: Old Testament
             창세기: Genesis
             신약성경: New Testament
-            성경 주석: Bible Commentary
-            주석 안내: Commentary Overview
+            성경 해설: Bible Commentary
+            해설 안내: Commentary Overview
             성경 해석의 원칙: Principles of Biblical Interpretation
-            KJV 한글성경주석: KJV Korean Bible Commentary
-            "KJV 한글성경주석: 구약": "KJV Korean Bible Commentary: Old Testament"
-            "KJV 한글성경주석: 신약": "KJV Korean Bible Commentary: New Testament"
+            KJV 한글성경 해설: KJV Korean Bible Commentary
+            "KJV 한글성경 해설: 구약": "KJV Korean Bible Commentary: Old Testament"
+            "KJV 한글성경 해설: 신약": "KJV Korean Bible Commentary: New Testament"
             참고 배경 자료: Background Resources
             구약 배경 자료: Old Testament Resources
             신약 배경 자료: New Testament Resources
@@ -127,6 +127,7 @@ extra_css:
 
 extra_javascript:
   - javascripts/scripture-reader.js
+  - javascripts/commentary-reader.js
 
 extra:
   social:

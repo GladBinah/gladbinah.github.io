@@ -37,3 +37,11 @@
  .sr-outline-fallback{display:block;position:sticky;top:6rem}
 }
 @media print{.sr-outline-desktop,.sr-outline-mobile,.sr-outline-fallback{display:none!important}.sr-body-with-inline-outline{display:block!important}}
+
+/* Commentary: linked Scripture reading and unobtrusive reciprocal links. */
+.commentary-scripture { margin: 1rem 0; }
+.commentary-scripture-content { margin-top: .6rem; }
+.commentary-scripture-controls { display: flex; flex-wrap: wrap; gap: .35rem; margin-bottom: .6rem; }
+.commentary-scripture-status { font-size: .82rem; }
+.commentary-scripture-links, .commentary-related { font-size: .78rem; }
+.scripture-reader .sr-verse { scroll-margin-top: 5rem; }
