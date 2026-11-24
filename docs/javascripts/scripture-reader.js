@@ -20,7 +20,9 @@ const noteHead=append(notesView,"h3","sr-subheading"),noteBar=append(notesView,"
 search.type="search";search.addEventListener("input",()=>filterNotes());
 const expand=btn(noteBar,"",()=>noteList.querySelectorAll("details:not([hidden])").forEach(d=>d.open=true)),collapse=btn(noteBar,"",()=>noteList.querySelectorAll("details").forEach(d=>d.open=false));
 const notesCount=append(notesView,"p","sr-meta"),noteList=append(notesView,"div","sr-note-list");
-for(const n of data.notes){const d=append(noteList,"details","sr-note");d.id=n.id;d.dataset.search=(n.title+" "+n.body_html.replace(/<[^>]+>/g," ")).toLowerCase();const s=append(d,"summary","",n.title);const body=append(d,"div","sr-note-body");body.lang="ko";body.innerHTML=n.body_html}
+let noteSection=null;
+const noteSectionTitles=[];
+for(const n of data.notes){const group=(data.sections||[]).find(s=>n.id.startsWith(s.id+"-"));if(group&&group.id!==noteSection){noteSection=group.id;const h=append(noteList,"h4","sr-note-section",group.coverage+" — "+group.title[lang]);noteSectionTitles.push([h,group]);}const d=append(noteList,"details","sr-note");d.id=n.id;d.dataset.search=(n.title+" "+n.body_html.replace(/<[^>]+>/g," ")).toLowerCase();const s=append(d,"summary","",n.title);const body=append(d,"div","sr-note-body");body.lang="ko";body.innerHTML=n.body_html}
 const extra=append(notesView,"div","sr-notes-extra");
 const extraPanels=[["대조 출처","Comparison sources",data.notes_sources_html],["나머지 절의 대조 및 공통 원칙","Other comparisons and shared principles",data.notes_general_html],["결정 및 수정 이력","Decision and revision history",data.notes_history_html]].map(([k,e,h])=>{const d=append(extra,"details","sr-note");const s=append(d,"summary","",k);const b=append(d,"div","sr-note-body");b.lang="ko";b.innerHTML=h;return [s,k,e]});
 const footer=append(root,"footer","sr-footer");
@@ -30,10 +32,24 @@ const content=append(dlg,"div","sr-dialog-content");
 dlg.addEventListener("close",()=>{active=null;if(previousFocus?.isConnected)previousFocus.focus()});
 dlg.addEventListener("click",e=>{if(e.target===dlg){const r=dlg.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dlg.close()}});
 const pressed=(b,val)=>b.setAttribute("aria-pressed",String(val));
-function filterNotes(){const q=search.value.trim().toLowerCase();let count=0;for(const d of noteList.children){d.hidden=!!q&&!d.dataset.search.includes(q);if(!d.hidden)count++}notesCount.textContent=tr(`번역 쟁점 ${count} / ${data.notes.length}개`,`Translation issues ${count} / ${data.notes.length}`)}
+function filterNotes(){const q=search.value.trim().toLowerCase();let count=0;for(const d of noteList.querySelectorAll(':scope > details')){d.hidden=!!q&&!d.dataset.search.includes(q);if(!d.hidden)count++}for(const [h,s] of noteSectionTitles){h.hidden=!!q;h.textContent=s.coverage+' — '+s.title[lang]}notesCount.textContent=tr(`번역 쟁점 ${count} / ${data.notes.length}개`,`Translation issues ${count} / ${data.notes.length}`)}
 function renderReading(){
 reading.replaceChildren();reading.lang=lang;
-for(const p of data.paragraphs){const el=append(reading,"p","sr-paragraph");for(let i=0;i<p.length;i++){const ref=p[i];if(i)el.append(document.createTextNode(" "));const v=append(el,"span","sr-verse");v.id="sr-"+lang+"-"+ref.replace(":","-");const label=ref.endsWith(":1")?ref:ref.split(":")[1];append(v,"strong","sr-verse-number",label);v.append(document.createTextNode(" "));const raw=data.verses[lang][ref];if(mode==="plain"){v.append(document.createTextNode(raw));continue}const links=data.alignments.filter(a=>a.verse_ref===ref&&a.click_spans[lang]).sort((a,b)=>a.click_spans[lang].start-b.click_spans[lang].start);let last=0;for(const a of links){const s=a.click_spans[lang];if(s.start<last||raw.slice(s.start,s.end)!==s.text)throw Error("Invalid stored lexical span "+a.id);v.append(document.createTextNode(raw.slice(last,s.start)));const b=btn(v,s.text,()=>openLex(a,b),"sr-lex");b.dataset.alignment=a.id;b.setAttribute("aria-label",s.text+tr(" — 원어 학습"," — Hebrew lexicon"));last=s.end}v.append(document.createTextNode(raw.slice(last)));}}
+const starts=new Map((data.sections||[]).map(s=>[s.start_ref,s]));
+function appendRange(parent,raw,from,to,spans){
+let last=from;
+for(const s of spans){const a=Math.max(from,s.start),b=Math.min(to,s.end);if(b<=a)continue;if(a>last)parent.append(document.createTextNode(raw.slice(last,a)));append(parent,"strong","sr-divine-name",raw.slice(a,b));last=b}
+if(last<to)parent.append(document.createTextNode(raw.slice(last,to)));
+}
+for(const p of data.paragraphs){
+const section=starts.get(p[0]);if(section){const h=append(reading,"h3","sr-reading-section",section.coverage+" — "+section.title[lang]);h.id=section.id;}
+const el=append(reading,"p","sr-paragraph");
+for(let i=0;i<p.length;i++){const ref=p[i];if(i)el.append(document.createTextNode(" "));const v=append(el,"span","sr-verse");v.id="sr-"+lang+"-"+ref.replace(":","-");const label=ref.endsWith(":1")||starts.has(ref)?ref:ref.split(":")[1];append(v,"strong","sr-verse-number",label);v.append(document.createTextNode(" "));const raw=data.verses[lang][ref],spans=data.typography?.[lang]?.[ref]||[];
+if(mode==="plain"){appendRange(v,raw,0,raw.length,spans);continue}
+const links=data.alignments.filter(a=>a.verse_ref===ref&&a.click_spans[lang]).sort((a,b)=>a.click_spans[lang].start-b.click_spans[lang].start);let last=0;
+for(const a of links){const s=a.click_spans[lang];if(s.start<last||raw.slice(s.start,s.end)!==s.text)throw Error("Invalid stored lexical span "+a.id);appendRange(v,raw,last,s.start,spans);const b=btn(v,"",()=>openLex(a,b),"sr-lex");appendRange(b,raw,s.start,s.end,spans);b.dataset.alignment=a.id;b.setAttribute("aria-label",s.text+tr(" — 원어 학습"," — Hebrew lexicon"));last=s.end}
+appendRange(v,raw,last,raw.length,spans);
+}}
 }
 function refresh(){heading.textContent=data.book[lang]+" "+data.coverage+" — "+data.title[lang];meta.textContent=tr(`한국어 번역 ${data.version.ko} · 영어 편집본 ${data.version.en}`,`Korean translation ${data.version.ko} · KJV Reading Edition ${data.version.en}`)+(data.preview?tr(" · 출판 전 검토용"," · private publication preview"):data.publication_date?tr(" · 공개 "," · Published ")+data.publication_date:"");lg.setAttribute("aria-label",tr("읽기 언어","Reading language"));vg.setAttribute("aria-label",tr("자료 선택","Content view"));mg.setAttribute("aria-label",tr("읽기 방식","Reading mode"));koBtn.textContent=tr("한국어","Korean");enBtn.textContent=tr("영어","English");readBtn.textContent=tr("성경 본문","Scripture");notesBtn.textContent=tr("번역 기록","Translation Notes");plainBtn.textContent=tr("일반 읽기","Reading");studyBtn.textContent=tr("원어 학습","Original-language study");pressed(koBtn,lang==="ko");pressed(enBtn,lang==="en");pressed(readBtn,view==="reading");pressed(notesBtn,view==="notes");pressed(plainBtn,mode==="plain");pressed(studyBtn,mode==="study");controls.hidden=view!=="reading";reading.hidden=view!=="reading";notesView.hidden=view!=="notes";tip.hidden=view!=="reading"||mode!=="study";tip.textContent=tr("밑줄 친 핵심 어휘나 어구를 클릭하여 실제 히브리어와 사전 설명을 확인할 수 있습니다.","Select an underlined key word or phrase to explore its Hebrew text form and dictionary entries.");noteHead.textContent=tr("구절별 Translation Notes","Translation Notes (Korean)");search.placeholder=tr("구절·번역어·논점 검색","Search Korean translation notes");search.setAttribute("aria-label",search.placeholder);expand.textContent=tr("모두 펼치기","Expand all");collapse.textContent=tr("모두 접기","Collapse all");extraPanels.forEach(([s,k,e])=>s.textContent=lang==="ko"?k:e);filterNotes();footer.replaceChildren();
 const copyrightLine=append(footer,"p","sr-footer-license");
@@ -48,7 +64,7 @@ sourcesLine.append(document.createTextNode(" · "));link(sourcesLine,"https://gi
 renderReading();}
 function setLang(l){if(dlg.open)dlg.close();lang=l;refresh()}
 function setMode(m){mode=m;view="reading";refresh()}
-function showReading(){view="reading";if(/^#GEN-S01-T\d+$/.test(location.hash))history.replaceState(null,"",location.pathname+location.search);refresh()}
+function showReading(){view="reading";if(/^#GEN-S\d+-T\d+$/.test(location.hash))history.replaceState(null,"",location.pathname+location.search);refresh()}
 function showNotes(id){view="notes";refresh();if(id){search.value="";filterNotes();const d=document.getElementById(id);if(d&&root.contains(d)){d.open=true;d.scrollIntoView({block:"start"});d.querySelector("summary").focus({preventScroll:true});if(location.hash!=="#"+id)history.replaceState(null,"","#"+id)}}}
 const label=(p,k,e)=>append(p,"div","sr-label",tr(k,e));
 const field=(p,k,e,value,he=false)=>{const f=append(p,"div","sr-field");label(f,k,e);if(he)heb(f,value);else append(f,"div","sr-field-value",value??"—");return f};

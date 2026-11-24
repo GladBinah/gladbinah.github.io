@@ -1,6 +1,6 @@
 # KJV Korean Bible: Old Testament
 
-The Old Testament is translated book by book and section by section, with approved passages released as they are ready. Genesis 1:1–2:3 is the first published passage.
+The Old Testament is translated book by book and section by section, with approved passages released as they are ready. Genesis 1:1–2:25 is currently available.
 
 ## Textual starting point
 
@@ -19,4 +19,4 @@ The same book page offers the approved Korean translation in the Korean view and
 
 | Book | Published coverage | Version |
 |---|---|---|
-| [Genesis](genesis.md) | 1:1–2:3 · Creation and the Seventh Day | 0.1.0 |
+| [Genesis](genesis.md) | 1:1–2:25 | 0.2.0 |
